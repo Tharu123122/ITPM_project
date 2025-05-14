@@ -42,3 +42,29 @@ export function TrackingModal({ isOpen, onClose, delivery }) {
   }, []);
 
   if (!isOpen) return null;
+
+  return (
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+      <div className="bg-white rounded-lg w-full max-w-4xl max-h-[90vh] overflow-y-auto">
+        <div className="p-6">
+          <div className="flex justify-between items-center mb-6">
+            <h2 className="text-2xl font-bold">Track Delivery #{delivery.id}</h2>
+            <button
+              onClick={onClose}
+              className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+            >
+              <X className="h-6 w-6" />
+            </button>
+          </div>
+
+          <div className="mb-6">
+            <div className="grid grid-cols-2 gap-4 mb-4">
+              <div>
+                <p className="text-gray-600">Pickup Location</p>
+                <p className="font-medium">{delivery.pickup}</p>
+              </div>
+              <div>
+                <p className="text-gray-600">Dropoff Location</p>
+                <p className="font-medium">{delivery.dropoff}</p>
+              </div>
+            </div>
