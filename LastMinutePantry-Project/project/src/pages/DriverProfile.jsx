@@ -336,3 +336,19 @@ export function DriverProfile() {
                 />
               </div>
             </div>
+
+            {isEditing && (
+              <div className="mt-8 pt-8 border-t">
+                <button
+                  onClick={() => setShowDeleteConfirm(true)}
+                  disabled={isLoading}
+                  className="flex items-center gap-2 text-red-600 hover:text-red-700 disabled:text-red-400 disabled:cursor-not-allowed"
+                >
+                  <Trash2 className="h-5 w-5" />
+                  Delete Account
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
