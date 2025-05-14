@@ -49,3 +49,22 @@ export function DriverDeliveries() {
     setSelectedDelivery(delivery);
     setIsTrackingModalOpen(true);
   };
+
+  return (
+    <div className="min-h-screen bg-gray-50 py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center mb-8">
+          <h1 className="text-2xl font-bold">Deliveries</h1>
+          <div className="flex items-center gap-4">
+            <Filter className="h-5 w-5 text-gray-500" />
+            <select
+              value={statusFilter}
+              onChange={(e) => setStatusFilter(e.target.value)}
+              className="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-green-500 focus:border-transparent"
+            >
+              <option value="all">All Deliveries</option>
+              <option value="pending">Pending</option>
+              <option value="in-progress">In Progress</option>
+            </select>
+          </div>
+        </div>
