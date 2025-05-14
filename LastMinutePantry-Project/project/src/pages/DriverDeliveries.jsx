@@ -29,3 +29,18 @@ export function DriverDeliveries() {
       status: "in-progress",
       orderTime: "2024-03-20 15:15"
     },
+    {
+      id: 3,
+      customer: "Mike Johnson",
+      pickup: "Fresh Foods",
+      dropoff: "789 Pine St",
+      items: 4,
+      earnings: 18.75,
+      status: "pending",
+      orderTime: "2024-03-20 15:45"
+    }
+  ];
+
+  const filteredDeliveries = deliveries.filter(delivery => 
+    statusFilter === 'all' || delivery.status === statusFilter
+  );
