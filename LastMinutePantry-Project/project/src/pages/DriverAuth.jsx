@@ -254,3 +254,27 @@ export function DriverAuth() {
                     <p className="mt-1 text-sm text-red-600">{validationErrors.nicNumber}</p>
                   )}
                 </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700">
+                    Vehicle Type
+                  </label>
+                  <select
+                    name="vehicleType"
+                    value={formData.vehicleType}
+                    onChange={handleChange}
+                    className={`mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:ring-orange-500 focus:border-orange-500 ${
+                      validationErrors.vehicleType ? 'border-red-300' : 'border-gray-300'
+                    }`}
+                    disabled={isLoading}
+                  >
+                    <option value="">Select vehicle type</option>
+                    <option value="Motorcycle">Motorcycle</option>
+                    <option value="Car">Car</option>
+                    <option value="Van">Van</option>
+                    <option value="Truck">Truck</option>
+                  </select>
+                  {validationErrors.vehicleType && (
+                    <p className="mt-1 text-sm text-red-600">{validationErrors.vehicleType}</p>
+                  )}
+                </div>
