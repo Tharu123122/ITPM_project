@@ -139,3 +139,13 @@ export function DriverDeliveries() {
             </div>
           ))}
         </div>
+    
+    <TrackingModal
+          isOpen={isTrackingModalOpen}
+          onClose={() => setIsTrackingModalOpen(false)}
+          delivery={selectedDelivery}
+        />
+      </div>
+    </div>
+  );
+}
