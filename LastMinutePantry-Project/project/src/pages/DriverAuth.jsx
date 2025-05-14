@@ -17,3 +17,11 @@ export function DriverAuth() {
     nicNumber: '',
     vehicleType: ''
   });
+
+  const [error, setError] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
+    const [validationErrors, setValidationErrors] = useState({});
+    
+    const navigate = useNavigate();
+    const location = useLocation();
+    const { login, register, user } = useAuth();
