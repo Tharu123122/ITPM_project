@@ -40,3 +40,22 @@ const getDeliveryByOrder = asyncHandler(async (req, res) => {
     throw new Error('Delivery not found');
   }
 });
+
+// @desc    Update delivery status
+// @route   PUT /api/deliveries/:id/status
+// @access  Private
+const updateDeliveryStatus = asyncHandler(async (req, res) => {
+  const delivery = await Delivery.findById(req.params.id);
+
+  if (delivery) {
+    delivery.status = req.body.status;
+    if (req.body.driver) {
+      delivery.driver = req.body.driver;
+    }
+    const updatedDelivery = await delivery.save();
+    res.json(updatedDelivery);
+  } else {
+    res.status(404);
+    throw new Error('Delivery not found');
+  }
+});
