@@ -50,3 +50,14 @@ export function DriverAuth() {
     } else if (!isLogin && formData.password.length < 8) {
       errors.password = 'Password must be at least 8 characters';
     }
+
+    if (!isLogin) {
+      if (!formData.name) errors.name = 'Full name is required';
+      if (!formData.phone) errors.phone = 'Phone number is required';
+      if (!formData.address) errors.address = 'Address is required';
+      if (!formData.city) errors.city = 'City is required';
+      if (!formData.licenseNumber) errors.licenseNumber = 'Driver license number is required';
+      if (!formData.vehicleLicenseNumber) errors.vehicleLicenseNumber = 'Vehicle license number is required';
+      if (!formData.nicNumber) errors.nicNumber = 'NIC number is required';
+      if (!formData.vehicleType) errors.vehicleType = 'Vehicle type is required';
+    }
