@@ -176,3 +176,24 @@ export function DriverAuth() {
                 <p className="mt-1 text-sm text-red-600">{validationErrors.password}</p>
               )}
             </div>
+
+             {!isLogin && (
+              <>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700">
+                    Full Name
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className={`mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:ring-orange-500 focus:border-orange-500 ${
+                      validationErrors.name ? 'border-red-300' : 'border-gray-300'
+                    }`}
+                    disabled={isLoading}
+                  />
+                  {validationErrors.name && (
+                    <p className="mt-1 text-sm text-red-600">{validationErrors.name}</p>
+                  )}
+                </div>
