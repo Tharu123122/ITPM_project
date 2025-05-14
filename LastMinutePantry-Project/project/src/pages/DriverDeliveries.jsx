@@ -104,3 +104,38 @@ export function DriverDeliveries() {
                     <p className="font-medium">{delivery.dropoff}</p>
                   </div>
                 </div>
+
+                <div className="space-y-4">
+                  <div>
+                    <p className="text-gray-600 text-sm">Items</p>
+                    <p className="font-medium">{delivery.items} items</p>
+                  </div>
+                  <div>
+                    <p className="text-gray-600 text-sm">Earnings</p>
+                    <p className="font-medium text-green-600">${delivery.earnings.toFixed(2)}</p>
+                  </div>
+                  <div className="pt-4 space-y-2">
+                    {delivery.status === 'in-progress' && (
+                      <button 
+                        onClick={() => handleTrackDelivery(delivery)}
+                        className="w-full py-2 px-4 rounded-lg font-medium bg-blue-100 text-blue-700 hover:bg-blue-200 flex items-center justify-center gap-2"
+                      >
+                        <MapPin className="h-5 w-5" />
+                        Track Delivery
+                      </button>
+                    )}
+                    <button 
+                      className={`w-full py-2 px-4 rounded-lg font-medium ${
+                        delivery.status === 'pending'
+                          ? 'bg-green-600 text-white hover:bg-green-700'
+                          : 'bg-blue-600 text-white hover:bg-blue-700'
+                      }`}
+                    >
+                      {delivery.status === 'pending' ? 'Accept Delivery' : 'View Details'}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
