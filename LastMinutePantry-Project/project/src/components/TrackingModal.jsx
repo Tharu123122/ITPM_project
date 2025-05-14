@@ -90,3 +90,14 @@ export function TrackingModal({ isOpen, onClose, delivery }) {
                           </GoogleMap>
                         </LoadScript>
                       </div>
+
+                                <div className="bg-green-50 p-4 rounded-lg">
+            <p className="text-green-800">
+              Estimated arrival time: {new Date().toLocaleTimeString()}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
