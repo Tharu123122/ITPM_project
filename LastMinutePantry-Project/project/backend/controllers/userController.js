@@ -114,3 +114,17 @@ const updateUserProfile = asyncHandler(async (req, res) => {
         user.nicNumber = req.body.nicNumber || user.nicNumber;
         user.vehicleType = req.body.vehicleType || user.vehicleType;
       }
+      const updatedUser = await user.save();
+
+    res.json({
+      _id: updatedUser._id,
+      name: updatedUser.name,
+      email: updatedUser.email,
+      role: updatedUser.role,
+      token: generateToken(updatedUser._id),
+    });
+  } else {
+    res.status(404);
+    throw new Error('User not found');
+  }
+});
