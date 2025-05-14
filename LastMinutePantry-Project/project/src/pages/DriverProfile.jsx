@@ -352,3 +352,44 @@ export function DriverProfile() {
           </div>
         </div>
       </div>
+
+      {/* Image Crop Modal */}
+      {showImageModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg w-full max-w-2xl p-6">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-xl font-bold">Crop Profile Picture</h2>
+              <button
+                onClick={() => setShowImageModal(false)}
+                className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+              >
+                <X className="h-6 w-6" />
+              </button>
+            </div>
+            <div className="mb-4">
+              <Cropper
+                src={image}
+                style={{ height: 400, width: '100%' }}
+                initialAspectRatio={1}
+                aspectRatio={1}
+                guides={false}
+                onInitialized={(instance) => setCropper(instance)}
+              />
+            </div>
+            <div className="flex justify-end gap-4">
+              <button
+                onClick={() => setShowImageModal(false)}
+                className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleCropComplete}
+                className="px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-colors"
+              >
+                Save
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
