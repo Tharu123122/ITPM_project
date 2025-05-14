@@ -83,3 +83,13 @@ const getUserProfile = asyncHandler(async (req, res) => {
         }),
       });
     } else {
+        res.status(404);
+    throw new Error('User not found');
+  }
+});
+
+// @desc    Update user profile
+// @route   PUT /api/users/profile
+// @access  Private
+const updateUserProfile = asyncHandler(async (req, res) => {
+  const user = await User.findById(req.user._id);
