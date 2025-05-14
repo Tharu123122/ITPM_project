@@ -68,3 +68,23 @@ export function DriverDeliveries() {
             </select>
           </div>
         </div>
+
+        <div className="space-y-4">
+          {filteredDeliveries.map((delivery) => (
+            <div
+              key={delivery.id}
+              className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow"
+            >
+              <div className="flex items-center justify-between mb-4">
+                <div>
+                  <h3 className="font-semibold text-lg">Order #{delivery.id}</h3>
+                  <p className="text-gray-600">{delivery.orderTime}</p>
+                </div>
+                <span className={`px-4 py-2 rounded-full text-sm font-medium ${
+                  delivery.status === 'pending' 
+                    ? 'bg-yellow-100 text-yellow-800'
+                    : 'bg-green-100 text-green-800'
+                }`}>
+                  {delivery.status === 'pending' ? 'Pending' : 'In Progress'}
+                </span>
+              </div>
