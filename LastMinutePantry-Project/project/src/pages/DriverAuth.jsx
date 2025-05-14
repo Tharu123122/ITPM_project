@@ -235,3 +235,22 @@ export function DriverAuth() {
                     <p className="mt-1 text-sm text-red-600">{validationErrors.vehicleLicenseNumber}</p>
                   )}
                 </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700">
+                    NIC Number
+                  </label>
+                  <input
+                    type="text"
+                    name="nicNumber"
+                    value={formData.nicNumber}
+                    onChange={handleChange}
+                    className={`mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:ring-orange-500 focus:border-orange-500 ${
+                      validationErrors.nicNumber ? 'border-red-300' : 'border-gray-300'
+                    }`}
+                    disabled={isLoading}
+                  />
+                  {validationErrors.nicNumber && (
+                    <p className="mt-1 text-sm text-red-600">{validationErrors.nicNumber}</p>
+                  )}
+                </div>
