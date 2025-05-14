@@ -44,3 +44,9 @@ export function DriverAuth() {
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       errors.email = 'Invalid email format';
     }
+
+    if (!formData.password) {
+      errors.password = 'Password is required';
+    } else if (!isLogin && formData.password.length < 8) {
+      errors.password = 'Password must be at least 8 characters';
+    }
