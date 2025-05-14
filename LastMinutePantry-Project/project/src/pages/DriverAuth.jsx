@@ -316,3 +316,40 @@ export function DriverAuth() {
                     <p className="mt-1 text-sm text-red-600">{validationErrors.address}</p>
                   )}
                 </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700">
+                    City
+                  </label>
+                  <input
+                    type="text"
+                    name="city"
+                    value={formData.city}
+                    onChange={handleChange}
+                    className={`mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:ring-orange-500 focus:border-orange-500 ${
+                      validationErrors.city ? 'border-red-300' : 'border-gray-300'
+                    }`}
+                    disabled={isLoading}
+                  />
+                  {validationErrors.city && (
+                    <p className="mt-1 text-sm text-red-600">{validationErrors.city}</p>
+                  )}
+                </div>
+              </>
+            )}
+
+            <button
+              type="submit"
+              disabled={isLoading}
+              className="w-full bg-orange-600 text-white px-4 py-3 rounded-lg font-semibold hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 disabled:bg-orange-400 disabled:cursor-not-allowed flex items-center justify-center"
+            >
+              {isLoading ? (
+                <>
+                  <Loader2 className="animate-spin h-5 w-5 mr-2" />
+                  {isLogin ? 'Signing in...' : 'Creating account...'}
+                </>
+              ) : (
+                isLogin ? 'Sign In' : 'Create Account'
+              )}
+            </button>
+          </form>
