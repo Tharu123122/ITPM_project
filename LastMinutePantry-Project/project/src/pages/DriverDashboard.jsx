@@ -76,3 +76,15 @@ export function DriverDashboard() {
             </div>
           </div>
         </div>
+
+        {/* Weekly Performance Chart Placeholder */}
+        <div className="bg-white p-6 rounded-lg shadow-md">
+          <h2 className="text-xl font-semibold mb-4">Weekly Performance</h2>
+          <div className="h-64 flex items-center justify-center bg-gray-50 rounded-lg">
+            <p className="text-gray-500">Performance metrics visualization will be displayed here</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
