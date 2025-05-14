@@ -60,3 +60,33 @@ export function DriverProfile() {
       reader.readAsDataURL(file);
     }
   };
+
+  const handleCropComplete = () => {
+    if (cropper) {
+      const croppedImage = cropper.getCroppedCanvas().toDataURL();
+      setFormData({ ...formData, profileImage: croppedImage });
+      setShowImageModal(false);
+      setImage(null);
+    }
+  };
+
+  const handleSaveProfile = async () => {
+    setIsLoading(true);
+    setError('');
+    setSuccessMessage('');
+
+    try {
+      const result = await updateProfile(formData);
+      if (result.success) {
+        setIsEditing(false);
+        setSuccessMessage('Profile updated successfully!');
+        setTimeout(() => setSuccessMessage(''), 3000);
+      } else {
+        setError(result.error);
+      }
+    } catch (err) {
+      setError('Failed to update profile. Please try again.');
+    } finally {
+      setIsLoading(false);
+    }
+  };
