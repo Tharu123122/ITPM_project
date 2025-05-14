@@ -31,3 +31,20 @@ export function DriverProfile() {
   // Image cropper state
   const [image, setImage] = useState(null);
   const [cropper, setCropper] = useState(null);
+
+   useEffect(() => {
+    if (user) {
+      setFormData({
+        name: user.name || '',
+        email: user.email || '',
+        phone: user.phone || '',
+        address: user.address || '',
+        city: user.city || '',
+        licenseNumber: user.licenseNumber || '',
+        vehicleLicenseNumber: user.vehicleLicenseNumber || '',
+        nicNumber: user.nicNumber || '',
+        vehicleType: user.vehicleType || '',
+        profileImage: user.profileImage || formData.profileImage
+      });
+    }
+  }, [user]);
