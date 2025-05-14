@@ -33,3 +33,15 @@ export function DriverDashboard() {
             Welcome to your driver dashboard
           </p>
         </div>
+
+    {/* Stats */}
+        <div className="grid md:grid-cols-4 gap-6 mb-8">
+          <div className="bg-white p-6 rounded-lg shadow-md">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-gray-600">Today's Deliveries</p>
+                <p className="text-2xl font-bold">{stats.totalDeliveries}</p>
+              </div>
+              <Truck className="h-8 w-8 text-orange-600" />
+            </div>
+          </div>
