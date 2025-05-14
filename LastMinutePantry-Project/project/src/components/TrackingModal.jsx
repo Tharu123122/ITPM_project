@@ -40,3 +40,5 @@ export function TrackingModal({ isOpen, onClose, delivery }) {
       }
     );
   }, []);
+
+  if (!isOpen) return null;
