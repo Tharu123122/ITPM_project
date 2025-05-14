@@ -48,3 +48,15 @@ export function DriverProfile() {
       });
     }
   }, [user]);
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        setImage(reader.result);
+        setShowImageModal(true);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
