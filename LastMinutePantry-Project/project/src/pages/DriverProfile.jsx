@@ -144,3 +144,19 @@ export function DriverProfile() {
               </div>
             </div>
           </div>
+
+          {/* Profile Content */}
+          <div className="pt-20 px-8 pb-8">
+            {error && (
+              <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-center gap-2 text-red-600">
+                <AlertCircle className="h-5 w-5 flex-shrink-0" />
+                <p>{error}</p>
+              </div>
+            )}
+
+            {successMessage && (
+              <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-center gap-2 text-green-600">
+                <AlertCircle className="h-5 w-5 flex-shrink-0" />
+                <p>{successMessage}</p>
+              </div>
+            )}
