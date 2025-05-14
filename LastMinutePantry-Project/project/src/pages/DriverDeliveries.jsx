@@ -44,3 +44,8 @@ export function DriverDeliveries() {
   const filteredDeliveries = deliveries.filter(delivery => 
     statusFilter === 'all' || delivery.status === statusFilter
   );
+
+  const handleTrackDelivery = (delivery) => {
+    setSelectedDelivery(delivery);
+    setIsTrackingModalOpen(true);
+  };
