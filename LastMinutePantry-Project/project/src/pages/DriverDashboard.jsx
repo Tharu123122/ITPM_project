@@ -65,3 +65,14 @@ export function DriverDashboard() {
               <Clock className="h-8 w-8 text-orange-600" />
             </div>
           </div>
+
+          <div className="bg-white p-6 rounded-lg shadow-md">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-gray-600">Total Distance</p>
+                <p className="text-2xl font-bold">{stats.totalDistance} km</p>
+              </div>
+              <MapPin className="h-8 w-8 text-orange-600" />
+            </div>
+          </div>
+        </div>
