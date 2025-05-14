@@ -112,3 +112,28 @@ export function DriverAuth() {
       [name]: value
     }));
   };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-orange-50 to-orange-100 py-20">
+      <div className="max-w-md mx-auto px-4">
+        <div className="bg-white rounded-2xl shadow-xl p-8">
+          <div className="text-center mb-8">
+            <div className="bg-orange-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Truck className="h-10 w-10 text-orange-600" />
+            </div>
+            <h2 className="text-3xl font-bold text-gray-900">
+              {isLogin ? 'Welcome back!' : 'Join as a Driver'}
+            </h2>
+            <p className="text-gray-600 mt-2">
+              {isLogin
+                ? 'Sign in to start delivering'
+                : 'Create an account to join our delivery network'}
+            </p>
+          </div>
+
+          {error && (
+            <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-center gap-2 text-red-600">
+              <AlertCircle className="h-5 w-5 flex-shrink-0" />
+              <p>{error}</p>
+            </div>
+          )}
