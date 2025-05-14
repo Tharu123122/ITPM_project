@@ -18,3 +18,21 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
       enum: ['customer', 'vendor', 'driver', 'admin'],
+    },
+    name: {
+      type: String,
+      required: true,
+    },
+    phone: {
+      type: String,
+      required: true,
+    },
+    address: {
+      type: String,
+      required: true,
+    },
+    city: {
+      type: String,
+      required: true,
+    },
+    // Fields for vendors
