@@ -68,3 +68,25 @@ export function TrackingModal({ isOpen, onClose, delivery }) {
                 <p className="font-medium">{delivery.dropoff}</p>
               </div>
             </div>
+
+            <LoadScript googleMapsApiKey={GOOGLE_MAPS_API_KEY}>
+                          <GoogleMap
+                            mapContainerStyle={containerStyle}
+                            center={defaultCenter}
+                            zoom={12}
+                            onLoad={onLoad}
+                          >
+                            {directions && (
+                              <DirectionsRenderer
+                                directions={directions}
+                                options={{
+                                  polylineOptions: {
+                                    strokeColor: '#22C55E',
+                                    strokeWeight: 5,
+                                  },
+                                }}
+                              />
+                            )}
+                          </GoogleMap>
+                        </LoadScript>
+                      </div>
