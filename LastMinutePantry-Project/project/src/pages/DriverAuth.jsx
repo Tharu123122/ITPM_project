@@ -25,3 +25,13 @@ export function DriverAuth() {
     const navigate = useNavigate();
     const location = useLocation();
     const { login, register, user } = useAuth();
+
+    useEffect(() => {
+    if (user) {
+      if (user.role !== 'driver') {
+        setError('Access denied. This login is for drivers only.');
+        return;
+      }
+      navigate('/drivers');
+    }
+  }, [user, navigate]);
