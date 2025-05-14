@@ -65,3 +65,13 @@ export function DriverAuth() {
     setValidationErrors(errors);
     return Object.keys(errors).length === 0;
   };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError('');
+    setIsLoading(true);
+
+    if (!validateForm()) {
+      setIsLoading(false);
+      return;
+    }
