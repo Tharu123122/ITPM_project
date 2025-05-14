@@ -61,3 +61,7 @@ export function DriverAuth() {
       if (!formData.nicNumber) errors.nicNumber = 'NIC number is required';
       if (!formData.vehicleType) errors.vehicleType = 'Vehicle type is required';
     }
+
+    setValidationErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
