@@ -101,3 +101,16 @@ const updateUserProfile = asyncHandler(async (req, res) => {
     if (req.body.password) {
       user.password = req.body.password;
     }
+    // Update role-specific fields
+    if (user.role === 'vendor') {
+        user.businessType = req.body.businessType || user.businessType;
+        user.registrationNumber = req.body.registrationNumber || user.registrationNumber;
+        user.establishedYear = req.body.establishedYear || user.establishedYear;
+        user.openingHours = req.body.openingHours || user.openingHours;
+        user.isConnected = req.body.isConnected ?? user.isConnected;
+      } else if (user.role === 'driver') {
+        user.licenseNumber = req.body.licenseNumber || user.licenseNumber;
+        user.vehicleLicenseNumber = req.body.vehicleLicenseNumber || user.vehicleLicenseNumber;
+        user.nicNumber = req.body.nicNumber || user.nicNumber;
+        user.vehicleType = req.body.vehicleType || user.vehicleType;
+      }
