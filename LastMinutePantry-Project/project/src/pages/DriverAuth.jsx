@@ -75,3 +75,32 @@ export function DriverAuth() {
       setIsLoading(false);
       return;
     }
+
+    try {
+      if (isLogin) {
+        // Pass 'driver' role for validation during login
+        const result = await login(formData.email, formData.password, 'driver');
+        if (result.success) {
+          navigate('/drivers');
+        } else {
+          setError(result.error || 'Invalid credentials');
+        }
+      } else {
+        const driverData = {
+          ...formData,
+          role: 'driver'
+        };
+
+        const result = await register(driverData);
+        if (result.success) {
+          navigate('/drivers');
+        } else {
+          setError(result.error || 'Registration failed');
+        }
+      }
+    } catch (err) {
+      setError('An unexpected error occurred');
+    } finally {
+      setIsLoading(false);
+    }
+  };
