@@ -25,3 +25,18 @@ const createDelivery = asyncHandler(async (req, res) => {
     throw new Error('Invalid delivery data');
   }
 });
+
+// @desc    Get delivery by order ID
+// @route   GET /api/deliveries/order/:orderId
+// @access  Private
+const getDeliveryByOrder = asyncHandler(async (req, res) => {
+  const delivery = await Delivery.findOne({ order: req.params.orderId })
+    .populate('driver', 'name phone');
+
+  if (delivery) {
+    res.json(delivery);
+  } else {
+    res.status(404);
+    throw new Error('Delivery not found');
+  }
+});
