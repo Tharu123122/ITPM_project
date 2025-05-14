@@ -35,3 +35,12 @@ export function DriverAuth() {
       navigate('/drivers');
     }
   }, [user, navigate]);
+
+  const validateForm = () => {
+    const errors = {};
+
+    if (!formData.email) {
+      errors.email = 'Email is required';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      errors.email = 'Invalid email format';
+    }
