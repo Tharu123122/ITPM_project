@@ -353,3 +353,34 @@ export function DriverAuth() {
               )}
             </button>
           </form>
+
+          <div className="mt-6 text-center">
+            <button
+              onClick={() => {
+                setIsLogin(!isLogin);
+                setError('');
+                setValidationErrors({});
+                setFormData({
+                  email: '',
+                  password: '',
+                  name: '',
+                  phone: '',
+                  address: '',
+                  city: '',
+                  licenseNumber: '',
+                  vehicleLicenseNumber: '',
+                  nicNumber: '',
+                  vehicleType: ''
+                });
+              }}
+              className="text-orange-600 hover:text-orange-800 font-medium"
+              disabled={isLoading}
+            >
+              {isLogin ? "Don't have an account? Sign up" : 'Already have an account? Sign in'}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
