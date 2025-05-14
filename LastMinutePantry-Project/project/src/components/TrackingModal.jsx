@@ -26,3 +26,17 @@ export function TrackingModal({ isOpen, onClose, delivery }) {
     // Mock coordinates - replace with actual geocoding in production
     const pickupCoords = { lat: 40.7128, lng: -74.0060 }; // New York
     const dropoffCoords = { lat: 40.7614, lng: -73.9776 }; // Manhattan
+
+    directionsService.route(
+      {
+        origin: pickupCoords,
+        destination: dropoffCoords,
+        travelMode: google.maps.TravelMode.DRIVING,
+      },
+      (result, status) => {
+        if (status === google.maps.DirectionsStatus.OK) {
+          setDirections(result);
+        }
+      }
+    );
+  }, []);
