@@ -197,3 +197,22 @@ export function DriverAuth() {
                     <p className="mt-1 text-sm text-red-600">{validationErrors.name}</p>
                   )}
                 </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700">
+                    Driver License Number
+                  </label>
+                  <input
+                    type="text"
+                    name="licenseNumber"
+                    value={formData.licenseNumber}
+                    onChange={handleChange}
+                    className={`mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:ring-orange-500 focus:border-orange-500 ${
+                      validationErrors.licenseNumber ? 'border-red-300' : 'border-gray-300'
+                    }`}
+                    disabled={isLoading}
+                  />
+                  {validationErrors.licenseNumber && (
+                    <p className="mt-1 text-sm text-red-600">{validationErrors.licenseNumber}</p>
+                  )}
+                </div>
