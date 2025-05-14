@@ -45,3 +45,7 @@ const deliverySchema = new mongoose.Schema(
     timestamps: true
   }
 );
+
+const Delivery = mongoose.model('Delivery', deliverySchema);
+
+export default Delivery;
