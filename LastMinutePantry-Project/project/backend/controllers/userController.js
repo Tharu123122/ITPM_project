@@ -54,3 +54,32 @@ const registerUser = asyncHandler(async (req, res) => {
         throw new Error('Invalid user data');
       }
     });
+
+    // @desc    Get user profile
+// @route   GET /api/users/profile
+// @access  Private
+const getUserProfile = asyncHandler(async (req, res) => {
+    const user = await User.findById(req.user._id);
+  
+    if (user) {
+      res.json({
+        _id: user._id,
+        name: user.name,
+        email: user.email,
+        role: user.role,
+        // Include role-specific fields
+        ...(user.role === 'vendor' && {
+          businessType: user.businessType,
+          registrationNumber: user.registrationNumber,
+          establishedYear: user.establishedYear,
+          openingHours: user.openingHours,
+          isConnected: user.isConnected,
+        }),
+        ...(user.role === 'driver' && {
+          licenseNumber: user.licenseNumber,
+          vehicleLicenseNumber: user.vehicleLicenseNumber,
+          nicNumber: user.nicNumber,
+          vehicleType: user.vehicleType,
+        }),
+      });
+    } else {
