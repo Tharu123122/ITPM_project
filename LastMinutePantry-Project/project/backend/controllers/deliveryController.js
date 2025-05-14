@@ -59,3 +59,9 @@ const updateDeliveryStatus = asyncHandler(async (req, res) => {
     throw new Error('Delivery not found');
   }
 });
+
+export {
+  createDelivery,
+  getDeliveryByOrder,
+  updateDeliveryStatus
+};
