@@ -22,3 +22,15 @@ const loginUser = asyncHandler(async (req, res) => {
     throw new Error('Invalid email or password');
   }
 });
+// @desc    Register a new user
+// @route   POST /api/users
+// @access  Public
+const registerUser = asyncHandler(async (req, res) => {
+    const { email, password, role, ...otherFields } = req.body;
+  
+    const userExists = await User.findOne({ email });
+  
+    if (userExists) {
+      res.status(400);
+      throw new Error('User already exists');
+    }
