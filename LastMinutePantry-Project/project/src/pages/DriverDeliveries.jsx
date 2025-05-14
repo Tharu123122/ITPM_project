@@ -19,3 +19,13 @@ export function DriverDeliveries() {
       status: "pending",
       orderTime: "2024-03-20 14:30"
     },
+    {
+      id: 2,
+      customer: "Jane Smith",
+      pickup: "Green Market",
+      dropoff: "456 Oak Ave",
+      items: 2,
+      earnings: 15.00,
+      status: "in-progress",
+      orderTime: "2024-03-20 15:15"
+    },
