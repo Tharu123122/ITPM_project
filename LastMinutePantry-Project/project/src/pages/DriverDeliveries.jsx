@@ -88,3 +88,19 @@ export function DriverDeliveries() {
                   {delivery.status === 'pending' ? 'Pending' : 'In Progress'}
                 </span>
               </div>
+
+            <div className="grid md:grid-cols-2 gap-6">
+                <div className="space-y-4">
+                  <div>
+                    <p className="text-gray-600 text-sm">Customer</p>
+                    <p className="font-medium">{delivery.customer}</p>
+                  </div>
+                  <div>
+                    <p className="text-gray-600 text-sm">Pickup Location</p>
+                    <p className="font-medium">{delivery.pickup}</p>
+                  </div>
+                  <div>
+                    <p className="text-gray-600 text-sm">Dropoff Location</p>
+                    <p className="font-medium">{delivery.dropoff}</p>
+                  </div>
+                </div>
