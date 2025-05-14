@@ -36,3 +36,46 @@ const userSchema = new mongoose.Schema(
       required: true,
     },
     // Fields for vendors
+    businessType: {
+        type: String,
+        required: function() { return this.role === 'vendor'; },
+      },
+      registrationNumber: {
+        type: String,
+        required: function() { return this.role === 'vendor'; },
+      },
+      establishedYear: {
+        type: String,
+        required: function() { return this.role === 'vendor'; },
+      },
+      openingHours: {
+        type: String,
+        required: function() { return this.role === 'vendor'; },
+      },
+      isConnected: {
+        type: Boolean,
+        default: true,
+        required: function() { return this.role === 'vendor'; },
+      },
+      // Fields for drivers
+      licenseNumber: {
+        type: String,
+        required: function() { return this.role === 'driver'; },
+      },
+      vehicleLicenseNumber: {
+        type: String,
+        required: function() { return this.role === 'driver'; },
+      },
+      nicNumber: {
+        type: String,
+        required: function() { return this.role === 'driver'; },
+      },
+      vehicleType: {
+        type: String,
+        required: function() { return this.role === 'driver'; },
+      },
+    },
+    {
+      timestamps: true,
+    }
+  );
