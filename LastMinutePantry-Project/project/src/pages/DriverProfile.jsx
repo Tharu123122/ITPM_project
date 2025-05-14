@@ -90,3 +90,29 @@ export function DriverProfile() {
       setIsLoading(false);
     }
   };
+
+  const handleDeleteAccount = async () => {
+    setIsLoading(true);
+    setError('');
+
+    try {
+      const token = localStorage.getItem('token');
+      await fetch('/api/users/profile', {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+      
+      logout();
+      navigate('/role-selection');
+    } catch (err) {
+      setError('Failed to delete account. Please try again.');
+      setIsLoading(false);
+    }
+  };
+
+  const handleLogout = () => {
+    logout();
+    navigate('/role-selection');
+  };
